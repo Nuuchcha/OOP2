@@ -1,8 +1,17 @@
 package ru.netology.operations;
 
 public class Radio {
+    private int numberStation;
     private int currentVolume;
     private int currentStation;
+
+    public Radio() {
+        this.numberStation = 9;
+    }
+
+    public Radio(int numberStation) {
+        this.numberStation = numberStation - 1;
+    }
 
     public int getCurrentStation() {
         return currentStation;
@@ -10,7 +19,7 @@ public class Radio {
 
     // Переключение на следующую станцию
     public void nextStationNumber() {
-        if (currentStation == 9) {
+        if (currentStation == numberStation) {
             currentStation = 0;
         } else {
             currentStation++;
@@ -20,7 +29,7 @@ public class Radio {
     // Переключение на предыдущую станцию
     public void prevStationNumber() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = numberStation;
         } else {
             currentStation--;
         }
@@ -28,7 +37,7 @@ public class Radio {
 
     // Установка cтанции по номеру
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > numberStation) {
             return;
         }
         if (newCurrentStation < 0) {
